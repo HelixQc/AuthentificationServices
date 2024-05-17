@@ -1,0 +1,64 @@
+﻿CREATE TABLE address (
+    address_id SERIAL PRIMARY KEY,
+    streetNumber INT NOT NULL,
+    appartement VARCHAR(255),
+    zipCode VARCHAR(255) NOT NULL,
+    street VARCHAR(255) NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    country VARCHAR(255) NOT NULL,
+    province VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE place (
+    place_id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    address_id INT NOT NULL REFERENCES address(address_id)
+);
+
+CREATE TABLE concert (
+    id SERIAL PRIMARY KEY,
+    place_id INT REFERENCES place(place_id) NOT NULL,
+    concertTimeDate TIMESTAMP WITH TIME ZONE NOT NULL,
+    price FLOAT
+);
+
+CREATE TABLE permission (
+    permission_id SERIAL PRIMARY KEY,
+    permission_type VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE role (
+    role_id SERIAL PRIMARY KEY,
+    role_type VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE role_permission (
+    role_id INT REFERENCES role(role_id),
+    permission_id INT REFERENCES permission(permission_id),
+    PRIMARY KEY (role_id, permission_id)
+);
+
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    address_id INT NOT NULL REFERENCES address(address_id)
+);
+
+CREATE TABLE user_role (
+    user_id INT REFERENCES users(user_id),
+    role_id INT REFERENCES role(role_id),
+    PRIMARY KEY (user_id, role_id)
+);
+
+CREATE TABLE Metadata (
+    Id SERIAL PRIMARY KEY,
+    RelativePath VARCHAR(255) NOT NULL,
+    FullPath VARCHAR(255) NOT NULL,
+    Name VARCHAR(100) NOT NULL,
+    Description VARCHAR(255),
+    FileType VARCHAR(10) CHECK (FileType IN ('img', 'mp3', 'mp4')) NOT NULL,
+    VoiceTone VARCHAR(50)
+);
