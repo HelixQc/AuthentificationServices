@@ -10,3 +10,4 @@ in the program.cs you need to uncomment the last section of the code. Only when 
 I did not make a migration yet. Open a terminal and enter the following commands 
 - add-migration "init"
 - update-database
+ ## Not done yet!!
