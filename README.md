@@ -18,9 +18,9 @@ Before you begin, make sure you have the following installed on your system:
 
 ### **Step 1: 🗂️ Create the Folder Structure** (if not done already)
 
-1. 🏗️ Create a folder named `kshtech`.  
-2. 📁 Inside the `kshtech` folder, create another folder named `kshtech-db`.  
-3. 🔄 Clone the repository **kshtech_API** into the `kshtech` folder using the command:
+1. 🏗️ Create a folder named `<Your folder name>`.  
+2. 📁 Inside the `<Your folder name>` folder, create another folder named `<Your folder name>-db`.  
+3. 🔄 Clone the repository **kshtech_API** into the `<Your folder name>` folder using the command:
 
     ```sh
     https://github.com/HelixQc/AuthentificationServices.git
